@@ -26,6 +26,10 @@ class IntegrationTests {
 
 		//Then
 		assertTrue(parkings.getBody().length != 0);
+
+		for(ParkingInfos parkingInfos : parkings.getBody()){
+			assertTrue(parkingInfos.getDistance() <= 1000);
+		};
 	}
 
 	@Test

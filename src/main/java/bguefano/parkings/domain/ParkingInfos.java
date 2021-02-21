@@ -18,12 +18,22 @@ public class ParkingInfos {
     private Coordinates position;
 
     /**
+     * Distance to the parking
+     */
+    @With
+    private Integer distance;
+
+    /**
      * Nombre de place total
      */
-    private int capacity;
+    private Integer capacity;
 
     /**
      * Nombre de place disponible
      */
-    private int available;
+    private Integer available;
+
+    public interface Deserializer<T> {
+        ParkingInfos toParkingInfos(T member);
+    }
 }

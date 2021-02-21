@@ -15,6 +15,7 @@
 	<description>parking geolocation server</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<jaxb.version>2.3.1</jaxb.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -53,6 +54,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 	</dependencies>
 

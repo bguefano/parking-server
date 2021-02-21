@@ -16,7 +16,7 @@ public class Distance {
      */
     public int inMeter(){
         double distance = 0d;
-        if ((x.latitude != y.latitude) || (x.longitude != y.longitude)) {
+        if ((!x.latitude.equals(y.latitude)) || (!x.longitude.equals(y.longitude))) {
             double deltaLon = Math.toRadians(y.getLongitude()) - Math.toRadians(x.getLongitude());
             distance = Math.acos(Math.sin(Math.toRadians(x.latitude))*Math.sin(Math.toRadians(y.latitude)) + Math.cos(Math.toRadians(x.latitude))*Math.cos(Math.toRadians(y.latitude))*Math.cos(deltaLon));
         }
