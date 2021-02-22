@@ -29,7 +29,7 @@ public class BMConfiguration {
 
     @Bean
     ParkingLocator parkingLocator(RestTemplate resTemplate){
-        return new BaseParkingLocator<BMFeatureMember>(resTemplate, new BMDeserializer(), new BMParameterizedTypeReference<>());
+        return new BaseParkingLocator<BMFeatureMember>(resTemplate, new BMDeserializer(), new ParameterizedTypeReference<FeatureCollection<BMFeatureMember>>() {});
     }
 
 
@@ -47,14 +47,6 @@ public class BMConfiguration {
             ClientHttpResponse response = execution.execute(request, body);
             response.getHeaders().setContentType(new MediaType(MediaType.TEXT_XML, StandardCharsets.ISO_8859_1));
             return response;
-        }
-    }
-
-    private static class BMParameterizedTypeReference<T> extends ParameterizedTypeReference<T> {
-
-        @Override
-        public Type getType() {
-            return (new ParameterizedTypeReference<FeatureCollection<BMFeatureMember>>() {}).getType();
         }
     }
 }
